@@ -1,0 +1,187 @@
+Started by user [8mha:////4IwYiwam+SWA6V1gDjDvV6fKZhlzsiJRtgOC4fJUjBagAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyeEgZu/dLi1CL94tKiykQAdalsZMAAAAA=[0mSurya Balaji
+Running as SYSTEM
+Building in workspace /home/centos/.jenkins/workspace/Sample_react_microservices_dev
+using credential ee8a0c8d-33a0-46f1-b4be-b3bb349237fb
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/nsuryabalaji/Sample_react_microservice.git # timeout=10
+Fetching upstream changes from https://github.com/nsuryabalaji/Sample_react_microservice.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_ASKPASS to set credentials github credentials
+ > git fetch --tags --progress https://github.com/nsuryabalaji/Sample_react_microservice.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dev^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/dev^{commit} # timeout=10
+Checking out Revision d08732e538db2eda1094223da1326f685e464d5e (refs/remotes/origin/dev)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d08732e538db2eda1094223da1326f685e464d5e # timeout=10
+Commit message: "build service modified"
+ > git rev-list --no-walk d08732e538db2eda1094223da1326f685e464d5e # timeout=10
+[Sample_react_microservices_dev] $ /bin/sh -xe /tmp/jenkins3779035889700635775.sh
++ pwd
+/home/centos/.jenkins/workspace/Sample_react_microservices_dev
++ ls -lrt
+total 16
+drwxrwxr-x. 2 centos centos   24 Aug  3 01:20 Nginx
+-rw-rw-r--. 1 centos centos 3011 Aug  3 01:20 README.md
+drwxrwxr-x. 3 centos centos   44 Aug  3 01:20 authservice
+drwxrwxr-x. 3 centos centos   39 Aug  3 01:20 frontend
+-rw-rw-r--. 1 centos centos  531 Aug  3 01:20 docker-compose-dev.yml
+-rw-rw-r--. 1 centos centos  756 Aug  3 01:20 inittables.sql
+-rwxrwxr-x. 1 centos centos 1019 Aug  3 06:57 build_services.sh
++ ./build_services.sh dev build
+Running for dev
+Running Build
+mysqldb uses an image, skipping
+Building webservice
+Step 1/8 : FROM node:latest
+ ---> 4495f296c63b
+Step 2/8 : RUN apt-get install -y git
+ ---> Running in 97462f0c9ef2
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.11.0-3+deb9u7).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Removing intermediate container 97462f0c9ef2
+ ---> d3ead4a8b6d0
+Step 3/8 : WORKDIR "/root"
+ ---> Running in dbc116c1262e
+Removing intermediate container dbc116c1262e
+ ---> a2793d8fae77
+Step 4/8 : RUN git clone https://github.com/DIYDevOps/Sample_react_microservice.git
+ ---> Running in faa7c2a76cee
+[91mCloning into 'Sample_react_microservice'...
+[0mRemoving intermediate container faa7c2a76cee
+ ---> 4bfc486a0ed1
+Step 5/8 : WORKDIR "/root/Sample_react_microservice/frontend/web"
+ ---> Running in 09ec1a15e8fc
+Removing intermediate container 09ec1a15e8fc
+ ---> 4099640505ee
+Step 6/8 : EXPOSE 8081
+ ---> Running in 7bc93c0801c6
+Removing intermediate container 7bc93c0801c6
+ ---> 78149b73bdf6
+Step 7/8 : RUN npm install
+ ---> Running in 754a23abfe4d
+
+> core-js-pure@3.6.5 postinstall /root/Sample_react_microservice/frontend/web/node_modules/core-js-pure
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+
+> jss@9.8.7 postinstall /root/Sample_react_microservice/frontend/web/node_modules/jss
+> node -e "console.log('\u001b[35m\u001b[1mLove JSS? You can now support us on open collective:\u001b[22m\u001b[39m\n > \u001b[34mhttps://opencollective.com/jss/donate\u001b[0m')"
+
+[35m[1mLove JSS? You can now support us on open collective:[22m[39m
+ > [34mhttps://opencollective.com/jss/donate[0m
+
+> core-js@3.6.5 postinstall /root/Sample_react_microservice/frontend/web/node_modules/react-app-polyfill/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/webpack-dev-server/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/watchpack-chokidar2/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/jest-haste-map/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.2 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+[0madded 1786 packages from 922 contributors and audited 1793 packages in 163.407s
+
+62 packages are looking for funding
+  run `npm fund` for details
+
+found 4996 vulnerabilities (4987 low, 9 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container 754a23abfe4d
+ ---> dd72bcb05184
+Step 8/8 : ENTRYPOINT ["npm", "start"]
+ ---> Running in 6785e6e7a83e
+Removing intermediate container 6785e6e7a83e
+ ---> 88fad0edb3b7
+Successfully built 88fad0edb3b7
+Successfully tagged web_image_dev:latest
+Building authservice
+Step 1/8 : FROM node:latest
+ ---> 4495f296c63b
+Step 2/8 : RUN apt-get install -y git
+ ---> Using cache
+ ---> d3ead4a8b6d0
+Step 3/8 : WORKDIR "/root"
+ ---> Using cache
+ ---> a2793d8fae77
+Step 4/8 : RUN git clone https://github.com/DIYDevOps/Sample_react_microservice.git
+ ---> Using cache
+ ---> 4bfc486a0ed1
+Step 5/8 : WORKDIR "/root/Sample_react_microservice/authservice/auth-app"
+ ---> Running in 7da22bbf7fb1
+Removing intermediate container 7da22bbf7fb1
+ ---> 06e6b795bc0c
+Step 6/8 : RUN npm install
+ ---> Running in d763ee27e3f1
+
+> core-js@2.6.11 postinstall /root/Sample_react_microservice/authservice/auth-app/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+
+> nodemon@1.19.4 postinstall /root/Sample_react_microservice/authservice/auth-app/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+[91mnpm WARN authservice@1.0.0 No repository field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+[0madded 291 packages from 201 contributors and audited 295 packages in 32.146s
+found 1 high severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container d763ee27e3f1
+ ---> 3bdcdef40862
+Step 7/8 : EXPOSE 8080
+ ---> Running in 8f3f6d7cf05f
+Removing intermediate container 8f3f6d7cf05f
+ ---> e7ea531e9baf
+Step 8/8 : ENTRYPOINT ["npm", "start"]
+ ---> Running in 913cf329e1d9
+Removing intermediate container 913cf329e1d9
+ ---> 3c6ba5317add
+Successfully built 3c6ba5317add
+Successfully tagged auth_image_dev:latest
++ ./build_services.sh dev up
+Running for dev
+Running up
+Creating network "sample_react_microservices_dev_default" with the default driver
+Creating mysql ... 
+Creating web_container_dev ... 
+Creating auth_container_dev ... 
+[1A[2KCreating auth_container_dev ... [32mdone[0m[1B[2A[2KCreating web_container_dev  ... [32mdone[0m[2B[3A[2KCreating mysql              ... [32mdone[0m[3Bmysql: [Warning] Using a password on the command line interface can be insecure.
+auth_container_dev
+waiting for services
+Finished: SUCCESS

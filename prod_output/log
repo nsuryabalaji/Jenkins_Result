@@ -1,0 +1,137 @@
+Started by user [8mha:////4IwYiwam+SWA6V1gDjDvV6fKZhlzsiJRtgOC4fJUjBagAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyeEgZu/dLi1CL94tKiykQAdalsZMAAAAA=[0mSurya Balaji
+Running as SYSTEM
+Building in workspace /home/centos/.jenkins/workspace/Sample_react_microservices_prod
+using credential ee8a0c8d-33a0-46f1-b4be-b3bb349237fb
+Cloning the remote Git repository
+Cloning repository https://github.com/nsuryabalaji/Sample_react_microservice.git
+ > git init /home/centos/.jenkins/workspace/Sample_react_microservices_prod # timeout=10
+Fetching upstream changes from https://github.com/nsuryabalaji/Sample_react_microservice.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_ASKPASS to set credentials github credentials
+ > git fetch --tags --progress https://github.com/nsuryabalaji/Sample_react_microservice.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/nsuryabalaji/Sample_react_microservice.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/nsuryabalaji/Sample_react_microservice.git # timeout=10
+Fetching upstream changes from https://github.com/nsuryabalaji/Sample_react_microservice.git
+using GIT_ASKPASS to set credentials github credentials
+ > git fetch --tags --progress https://github.com/nsuryabalaji/Sample_react_microservice.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/prod^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/prod^{commit} # timeout=10
+Checking out Revision b16fbb89855e50edde238212867d75de725f149d (refs/remotes/origin/prod)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b16fbb89855e50edde238212867d75de725f149d # timeout=10
+Commit message: "Production Code"
+First time build. Skipping changelog.
+[Sample_react_microservices_prod] $ /bin/sh -xe /tmp/jenkins9207140352538420567.sh
++ pwd
+/home/centos/.jenkins/workspace/Sample_react_microservices_prod
++ ls -lrt
+total 20
+-rw-rw-r--. 1 centos centos 3011 Aug  3 07:21 README.md
+drwxrwxr-x. 2 centos centos   24 Aug  3 07:21 Nginx
+drwxrwxr-x. 3 centos centos   67 Aug  3 07:21 authservice
+drwxrwxr-x. 3 centos centos   62 Aug  3 07:21 frontend
+-rw-rw-r--. 1 centos centos  640 Aug  3 07:21 docker-compose-prod.yml
+-rw-rw-r--. 1 centos centos  531 Aug  3 07:21 docker-compose-dev.yml
+-rwxrwxr-x. 1 centos centos 1019 Aug  3 07:21 build_services.sh
+-rw-rw-r--. 1 centos centos  756 Aug  3 07:21 inittables.sql
++ ./build_services.sh prod build
+Running for Prod
+Running Build
+mysqldb uses an image, skipping
+Building authservice
+Step 1/8 : FROM node:latest
+ ---> 4495f296c63b
+Step 2/8 : RUN apt-get install -y git
+ ---> Using cache
+ ---> d3ead4a8b6d0
+Step 3/8 : WORKDIR "/root"
+ ---> Using cache
+ ---> a2793d8fae77
+Step 4/8 : RUN git clone https://github.com/nsuryabalaji/Sample_react_microservice_org.git
+ ---> Running in f0ec296e8988
+[91mCloning into 'Sample_react_microservice_org'...
+[0mRemoving intermediate container f0ec296e8988
+ ---> b3b7f38e9782
+Step 5/8 : WORKDIR "/root/Sample_react_microservice_org/authservice/auth-app"
+ ---> Running in 472a69ea7e26
+Removing intermediate container 472a69ea7e26
+ ---> 6a2a094a2c90
+Step 6/8 : RUN npm install
+ ---> Running in 30424d35f8ad
+
+> core-js@2.6.11 postinstall /root/Sample_react_microservice_org/authservice/auth-app/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+
+> nodemon@1.19.4 postinstall /root/Sample_react_microservice_org/authservice/auth-app/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+[91mnpm WARN authservice@1.0.0 No repository field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.13 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+[0madded 291 packages from 201 contributors and audited 295 packages in 23.126s
+found 1 high severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container 30424d35f8ad
+ ---> 7913b8a00195
+Step 7/8 : EXPOSE 8080
+ ---> Running in 11ec7ebcb9cf
+Removing intermediate container 11ec7ebcb9cf
+ ---> d8620e830fb2
+Step 8/8 : ENTRYPOINT ["npm", "start"]
+ ---> Running in a954aadcb35b
+Removing intermediate container a954aadcb35b
+ ---> f42b1ec5a7f3
+Successfully built f42b1ec5a7f3
+Successfully tagged auth_image_prod:latest
+Building webservice
+Step 1/8 : FROM node:latest
+ ---> 4495f296c63b
+Step 2/8 : RUN apt-get install -y git
+ ---> Using cache
+ ---> d3ead4a8b6d0
+Step 3/8 : WORKDIR "/root"
+ ---> Using cache
+ ---> a2793d8fae77
+Step 4/8 : RUN git clone https://github.com/DIYDevOps/Sample_react_microservice.git
+ ---> Using cache
+ ---> 4bfc486a0ed1
+Step 5/8 : WORKDIR "/root/Sample_react_microservice/frontend/web"
+ ---> Using cache
+ ---> 4099640505ee
+Step 6/8 : EXPOSE 8081
+ ---> Using cache
+ ---> 78149b73bdf6
+Step 7/8 : RUN npm install
+ ---> Using cache
+ ---> dd72bcb05184
+Step 8/8 : ENTRYPOINT ["npm", "start"]
+ ---> Using cache
+ ---> 88fad0edb3b7
+Successfully built 88fad0edb3b7
+Successfully tagged web_image_prod:latest
++ ./build_services.sh prod up
+Running for Prod
+Running up
+Creating network "sample_react_microservices_prod_default" with the default driver
+Creating mysql ... 
+[1A[2KCreating mysql ... [32mdone[0m[1BCreating auth_container_prod ... 
+[1A[2KCreating auth_container_prod ... [32mdone[0m[1BCreating web_container_prod  ... 
+[1A[2KCreating web_container_prod  ... [32mdone[0m[1Bmysql: [Warning] Using a password on the command line interface can be insecure.
+auth_container_prod
+waiting for services
+Finished: SUCCESS
